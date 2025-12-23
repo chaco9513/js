@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            let div = document.getElementById("div1");
+            div.innerHTML = "test"
+            // console.log(div);
+            // console.log(document.getElementById("div1"));
+
+            div.style.color = "blue";
+
+            let name = prompt("이름 입력");
+            let age = prompt(`나이 입력`);
+            console.log("age type : ", typeof(age));
+            console.log("age type : ", typeof(Number(age)));
+            console.log("age type : ", typeof(parseInt(age)));
+
+            let ageNum = Number(age / 3);
+            let ageNum2 = parseInt(age / 3);
+            console.log("age type : ", typeof (ageNum));
+
+            console.log("Number :", ageNum);
+            console.log("parseInt :", ageNum2);
+
+            document.getElementById("div1").innerHTML = `
+                <b>이름</b> : ${name} <br>
+                <b>이름</b> : ${age + 1} <br>
+                <b>이름</b> : ${ageNum + 1} <br>
+            `;
+
+            let num = 123;
+
+            num = "문자로 변환";
+            console.log(num);
+
+            //const는 변경 불가
+            const str = "안녕하세요";
+            console.log(`str : ${str}`);
+            // str = "변경합니다";
+            // console.log(`str : ${str}`);
+        }
+        function test01(){
+            document.getElementById("div1").style.fontSize = "30px";
+            document.getElementById("div1").style.color = "green";
+            document.getElementById("div1").innerHTML = "안녕하세요";
+        }
+        function test02(){
+            let div = document.getElementById("div1");
+            div.style.fontSize = "50px";
+            div.style.color = "gold";
+            div.innerHTML = "Nice";
+        }
+    </script>
+</head>
+<body onload="init()">
+
+    <div id="div1"></div>
+    <button onclick="test01()">클릭</button>
+    <button onclick="test02()">클릭</button>
+</body>
+</html>

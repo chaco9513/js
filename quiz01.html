@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function init(){
+            let name = prompt("당신의 이름은?");
+            let age = prompt(name + "님의 나이는?");
+            let adr = prompt(name + "님의 주소는?");
+
+            age = Number(age - 1);
+
+            document.getElementById("tr").innerHTML = `
+                <td>${name}</td>
+                <td>만 ${age}세</td>
+                <td>${adr}</td>
+            `;
+
+            let div = document.getElementById("div1");
+            let name01 = prompt("이름 입력")
+            let age01 = prompt(name + " 나이 입력")
+            // let age01 = prompt(`${name} 나이 입력`)
+
+            let msg = `
+             <table border="1">
+                <tr>
+                    <th>이름</th><th>나이</th>    
+                </tr>
+                <tr>
+                    <td>${name01}</td><td>${age01}</td>
+                </tr>
+            </table>
+            `;
+            div.innerHTML = msg;
+        }
+    </script>
+    <style>
+        body *:not(div) {border:1px solid;}
+    </style>
+</head>
+<body onload="init()">
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="tr">
+            </tr>
+        </tbody>
+    </table>
+    <div id="div1"></div>
+</body>
+</html>
