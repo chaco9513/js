@@ -49,19 +49,33 @@
         }
 
         function btn(){
-            console.log('ww')
-            // const msg = document.getElementById("msg");
-            // const id = document.getElementById("id");
-            // const pwd = document.getElementById("pwd");
-            // const pwdChk = document.getElementById("pwdChk");
-            // const name = document.getElementById("name");
-            msg.innerHTML = `
+            if(id.value == ""){
+                id.focus();
+                msg.innerHTML = "id 필수 항목"
+            }else if(pwd.value == ""){
+                pwd.focus();
+                msg.innerHTML = "pwd 필수 항목"
+            }else if(pwdChk.value == ""){
+                pwdChk.focus();
+                msg.innerHTML = "pwdChk 필수 항목"
+            }else if(name.value == ""){
+                name.focus();
+                msg.innerHTML = "name 필수 항목"
+            }else{
+                msg.innerHTML = `
                 <h1>입력데이터</h1>
                 <p>id : <b>${id.value}</b></p>
                 <p>pwd : <b>${pwd.value}</b></p>
                 <p>pwd_check : <b>${pwdChk.value}</b></p>
                 <p>name : <b>${name.value}</b></p>
             `
+            }
+            // const msg = document.getElementById("msg");
+            // const id = document.getElementById("id");
+            // const pwd = document.getElementById("pwd");
+            // const pwdChk = document.getElementById("pwdChk");
+            // const name = document.getElementById("name");
+            
         }
 
 
