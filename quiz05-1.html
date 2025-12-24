@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function change01(){
+            const txt = document.getElementById("txt");
+            const id = document.getElementById("id").value;
+            let saveId = "javascript"
+            if(id.length < 4){
+                txt.innerHTML = `길이가 짧습니다(4자 이상)`
+            }else{
+                txt.innerHTML = `가입 가능한 id 입니다`
+                if(id == "javascript"){
+                    txt.innerHTML = `존재하는 id 입니다`
+                }
+            }
+
+        }
+
+        function change02(){
+            const pwd = document.getElementById("pwd");
+            const pwdChk = document.getElementById("pwdChk");
+            if (pwd.value == pwdChk.value) {
+                txt.innerHTML = `일치합니다`
+            }else{
+                txt.innerHTML = `비밀번호 일치하지 않음`;
+                pwd.value = "";
+                pwdChk.value = "";
+                pwd.focus();
+            }
+        }
+
+        function btn(){
+            console.log('ww')
+            const txt = document.getElementById("txt");
+            const id = document.getElementById("id");
+            const pwd = document.getElementById("pwd");
+            const pwdChk = document.getElementById("pwdChk");
+            const name = document.getElementById("name");
+            txt.innerHTML = `
+                <h1>입력데이터</h1>
+                <p>id : <b>${id.value}</b></p>
+                <p>pwd : <b>${pwd.value}</b></p>
+                <p>pwd_check : <b>${pwdChk.value}</b></p>
+                <p>name : <b>${name.value}</b></p>
+            `
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <input type="text" id="id" placeholder="input id" onchange="change01()"><br>
+    <input type="text" id="pwd" placeholder="input password"><br>
+    <input type="text" id="pwdChk" placeholder="password check" onchange="change02()"><br>
+    <input type="text" id="name" placeholder="input name"><br>
+    <div id="txt"></div><input type="button" value="가입" id="btn" onclick="btn()">
+</body>
+</html>

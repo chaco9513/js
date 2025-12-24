@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function btn(){
+            const txt1 = document.getElementById("txt1");
+            const txt2 = document.getElementById("txt2");
+            const msg = document.getElementById("msg");
+            console.log("txt1 : ", txt1.value);
+            console.log("txt2 : ", txt2.value);
+            console.log("txt2 == txt1 : ", txt2.value == txt1.value);
+            if (txt1.value == txt2.value) {
+                console.log("일치합니다");
+                msg.innerHTML = `<p>일치합니다</p>`
+            } else if(txt1.value != txt2.value) {
+                console.log("다시 입력");
+                txt1.value = "";
+                txt2.value = "";
+                txt1.focus();
+                msg.innerHTML = `<p class="not">다시 입력</p>`
+            }
+        }
+    </script>
+    <style>
+        .not{color:red}
+    </style>
+</head>
+<body>
+    <input type="text" id="txt1" placeholder="비번 입력"><br>
+    <input type="text" id="txt2" placeholder="비번 확인"><br>
+    <div id="msg"></div>
+    <input type="button" value="클릭" id="btn" onclick="btn()">
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let msg, id, pwd, pwdChk, name;
+        function init(){
+            msg = document.getElementById("msg");
+            id = document.getElementById("id");
+            pwd = document.getElementById("pwd");
+            pwdChk = document.getElementById("pwdChk");
+            name = document.getElementById("name");
+        }
+        function id_check(){
+            // const msg = document.getElementById("msg");
+            // const id = document.getElementById("id");
+            let saveId = "javascript"
+            let txt;
+            if( id.value.length > 3 ){
+                txt = "길이 성공"
+                if (id.value === saveId) {
+                    txt = "같음"
+                }else{
+                    txt = "가입 가능한 ID"
+                }
+            }else{
+                txt = "길이 짧음"
+            }
+            msg.innerHTML = txt
+
+        }
+
+        function change(){
+            // const pwd = document.getElementById("pwd");
+            // const pwdChk = document.getElementById("pwdChk");
+            // const msg = document.getElementById("msg");
+            let txt;
+            if (pwd.value === pwdChk.value) {
+                txt = "비번 일치"
+            }else{
+                txt = "비번 불일치"
+                pwd.value = "";
+                pwdChk.value = "";
+                pwd.focus();
+            }
+            msg.innerHTML = txt
+        }
+
+        function btn(){
+            console.log('ww')
+            // const msg = document.getElementById("msg");
+            // const id = document.getElementById("id");
+            // const pwd = document.getElementById("pwd");
+            // const pwdChk = document.getElementById("pwdChk");
+            // const name = document.getElementById("name");
+            msg.innerHTML = `
+                <h1>입력데이터</h1>
+                <p>id : <b>${id.value}</b></p>
+                <p>pwd : <b>${pwd.value}</b></p>
+                <p>pwd_check : <b>${pwdChk.value}</b></p>
+                <p>name : <b>${name.value}</b></p>
+            `
+        }
+
+
+
+    </script>
+</head>
+<body onload="init()">
+    <input type="text" id="id" placeholder="input id" oninput="id_check()"><br>
+    <input type="text" id="pwd" placeholder="input password"><br>
+    <input type="text" id="pwdChk" placeholder="password check" onchange="change()"><br>
+    <input type="text" id="name" placeholder="input name"><br>
+    <div id="msg"></div>
+    <button onclick="btn()">가입</button>
+</body>
+</html>
