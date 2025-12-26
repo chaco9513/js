@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap{width: 500px;border: 1px solid;overflow: hidden;}
+        #pic{width: 100px;height: 100px;}
+    </style>
+    <script>
+        function init(){
+            addEventListener("keydown", kDown)
+        }
+        let imgaeNum = 1;
+        let width = 0;
+        let start = 0;
+        let end = 0;
+        function kDown(event){
+            //console.log(event);
+            const img = document.getElementById("pic");
+            const txt = document.getElementById("txt");
+            switch(event.code){
+                case "Space" : 
+                    if(width <= 400){
+                        //imgaeNum++;
+                        img.src = "images/jol0" + ++imgaeNum + ".png";
+                        if (imgaeNum >= 3) {
+                            imgaeNum = 0;
+                        };
+
+                        width += 5
+                        img.style.marginLeft = width + "px";
+
+                        if (start == 0) {
+                            txt.innerHTML = "START";
+                            start = new Date().getTime();
+                        };
+                    }
+                    if(width >= 405){
+                        end = new Date().getTime();
+                        txt.innerHTML = "종료" + (end - start) / 1000 + "초";
+                    }
+                break;
+            }
+
+        }
+
+    </script>
+</head>
+<body onload="init()">
+    <div id="wrap">
+        <div id="txt" style="margin-left:100px">READY</div>
+        <hr>
+        <img src="images/jol01.png" alt="" id="pic">
+    </div>
+    <script>
+        let div = document.getElementById("txt")
+        let num = 10;
+        let sum = 100;
+        // num++;
+        sum = sum + num++;
+        div.innerHTML = sum;
+
+    </script>
+</body>
+</html>
