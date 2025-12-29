@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let i=0;sum=0;evenSum=0;oddSum=0;
+        for(i=1;i<=10;i++){
+            // console.log(i)
+            sum = sum + i;
+            if(i%2 == 0){
+                // console.log(i)
+                evenSum = evenSum + i;
+            }else{
+                oddSum = oddSum + i;
+            }
+        }
+        console.log("1~10 총 합 : ",sum)
+        console.log("1~10 짝 합 :",evenSum)
+        console.log("1~10 홀 합 :",oddSum)
+
+        const over = (div) => {
+            div.innerHTML = "마우스 over"
+        } 
+        const out = (div) => {
+            div.innerHTML = "마우스 out"
+        }
+
+        let tag;
+        window.onload = () => {
+            tag = document.getElementById("div1");
+            console.log(tag);
+            tag.addEventListener("mouseup", up);
+            tag.addEventListener("mousedown", down);
+        }
+        const up = () =>{
+            tag.innerHTML = "UP";
+            tag.removeAttribute("style")
+        }
+        const down = () =>{
+            tag.innerHTML = "DOWN";
+            tag.setAttribute("style","color:red;font-size:25px")
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">click event</div>
+    <div onmouseover="over(this)" onmouseout="out(this)">MOUSE</div>
+</body>
+</html>
