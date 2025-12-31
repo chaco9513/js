@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const user = {
+            id : "값",
+            printId : () => {alert("test : " + user['id'])}
+        }
+        const func01 = () => {
+            console.log(user.printId())
+            user.sec = "dddd";
+            user['thir'] = "aaaa"
+            console.log(user)
+        }
+    </script>
+</head>
+<body>
+    <button onclick="func01()">click</button>
+</body>
+</html>
